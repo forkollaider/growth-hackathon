@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DocumentContentService } from 'src/app/document-content.service';
 
-export interface PeriodicElement {
+export interface ITableItem {
   name: string;
   id: number;
   age: number;
@@ -10,19 +11,6 @@ export interface PeriodicElement {
   password?: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { id: 1, name: 'Hydrogen', age: 1.0079, surname: 'H',  },
-  { id: 2, name: 'Helium', age: 4.0026, surname: 'He' },
-  { id: 3, name: 'Lithium', age: 6.941, surname: 'Li' },
-  { id: 4, name: 'Beryllium', age: 9.0122, surname: 'Be' },
-  { id: 5, name: 'Boron', age: 10.811, surname: 'B' },
-  { id: 6, name: 'Carbon', age: 12.0107, surname: 'C' },
-  { id: 7, name: 'Nitrogen', age: 14.0067, surname: 'N' },
-  { id: 8, name: 'Oxygen', age: 15.9994, surname: 'O' },
-  { id: 9, name: 'Fluorine', age: 18.9984, surname: 'F' },
-  { id: 10, name: 'Neon', age: 20.1797, surname: 'Ne' },
-];
-
 @Component({
   selector: 'app-table-generated-columns',
   templateUrl: './table-generated-columns.component.html',
@@ -30,53 +18,55 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TableGeneratedColumnsComponent implements OnInit {
   @Input() columns: any[];
-  @Input() dataSource: Record<string, any>[];
   @Input() isHeaderOnTop = true;
 
+  public data: ITableItem[];
   public displayedColumns: any[];
   private readonly noDataSign = '-';
+  // private readonly amountOfProps = 6;
 
-  constructor() {}
+  constructor(private documentContentService: DocumentContentService) {}
 
   ngOnInit(): void {
+    this.data = this.documentContentService.getFormatData();
+
+    this.initColumns();
+    this.displayedColumns = this.columns.map((c) => c.columnDef);
+  }
+
+  private initColumns(): void {
     this.columns = [
-      // {
-      //   columnDef: 'id',
-      //   header: 'No.',
-      //   cell: (element: PeriodicElement) => `${element.id}`,
-      // },
       {
         columnDef: 'name',
         header: 'Name',
-        cell: (element: PeriodicElement) => `${element.name || this.noDataSign }`,
+        cell: (element: ITableItem) => `${element.name || this.noDataSign}`,
       },
       {
         columnDef: 'age',
         header: 'age',
-        cell: (element: PeriodicElement) => `${element.age || this.noDataSign }`,
+        cell: (element: ITableItem) => `${element.age || this.noDataSign}`,
       },
       {
         columnDef: 'surname',
         header: 'surname',
-        cell: (element: PeriodicElement) => `${element.surname || this.noDataSign }`,
+        cell: (element: ITableItem) => `${element.surname || this.noDataSign}`,
       },
       {
         columnDef: 'gender',
         header: 'gender',
-        cell: (element: PeriodicElement) => `${element.gender || this.noDataSign }`,
+        cell: (element: ITableItem) => `${element.gender || this.noDataSign}`,
       },
       {
         columnDef: 'password',
         header: 'password',
-        cell: (element: PeriodicElement) => `${element.password || this.noDataSign }`,
+        cell: (element: ITableItem) => `${element.password || this.noDataSign}`,
       },
       {
         columnDef: 'email',
         header: 'email',
-        cell: (element: PeriodicElement) => `${element.email || this.noDataSign }`,
+        cell: (element: ITableItem) => `${element.email || this.noDataSign}`,
       },
     ];
-    this.dataSource = ELEMENT_DATA;
-    this.displayedColumns = this.columns.map((c) => c.columnDef);
   }
+
 }

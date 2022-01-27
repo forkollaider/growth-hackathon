@@ -1,15 +1,23 @@
-<section *ngFor="let field of expectedSchema">
-  <div>
-    {{field.name}}
-  </div>
-  <div>
-    <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
-      <mat-select>
-        <mat-option value="option1">Option 1</mat-option>
-        <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+<section [formGroup]="form">
+  <section>
+    <mat-radio-group aria-label="Select an option" (change)="handleModeChange($event)">
+      <mat-radio-button value="{{MODES.ROW}}" [checked]="mode === MODES.ROW">Rows</mat-radio-button>
+      <mat-radio-button value="{{MODES.COLUMN}}" [checked]="mode === MODES.COLUMN">Columns</mat-radio-button>
+    </mat-radio-group>
+  </section>
+  <section *ngFor="let field of expectedSchema">
+    <div>
+      {{field.name}}
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose an option</mat-label>
+        <mat-select formControlName="{{field.field}}">
+          <mat-option *ngFor="let option of selectOptions" value="{{option}}">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </section>
+  <button mat-raised-button (click)="handleBack()">Back</button>
+  <button mat-raised-button color="primary" (click)="submitStructure()">Next</button>
 </section>
