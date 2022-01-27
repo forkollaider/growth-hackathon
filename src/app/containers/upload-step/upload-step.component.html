@@ -1,17 +1,23 @@
-<section >
+<section style="display:flex; flex-direction: column; justify-content: space-between; height:100%; padding: 20px;">
+    <div>
     <div stle="margin-top: 20px; margin-bottom: 20px;">
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
+            With contacts to start with, you can get a feel for our tools and get set up for success.
+            If we find any duplicate contacts, we'll remove them for you.
         </p>
     <div style="border: 2px dotted #5f8ff8; border-radius: 20px; background-color: #f7f9ff;">
-        <div style="display: flex; flex-direction: column; padding: 20px; padding-top: 40px; padding-bottom: 30px;"> 
+        <div style="display: flex; flex-direction: column; padding: 20px;"> 
         <p style="color:#5f8ff8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
+            Drag and drop or choose a file to upload your data
+            All .csv, .xlsx, and .xls file types are supported.
         </p>
         <input class="ng-hide" id="input-file-id" (change)="onFileChange($event)" multiple type="file" />
     
-        <label for="input-file-id" class="mat-button mat-raised mat-primary" style="color:#5f8ff8">
+        <label for="input-file-id" class="mat-button mat-raised mat-primary" style="color:#5f8ff8" *ngIf="!fileName">
             Choose Files
+        </label>
+        <label for="input-file-id" class="mat-button mat-raised mat-primary" style="color:#5f8ff8" *ngIf="fileName">
+            {{fileName}}
         </label>
         </div>
     </div>
@@ -24,7 +30,10 @@
         </ul>
     </div>
 </div>
-    <button mat-raised-button color="primary" style="margin-top:20px;" (click)="submitNext()">Next</button>
+</div>
+<div style="margin-top:20px; text-align: end;">
+    <button mat-raised-button color="primary" style="margin-top:20px; text-align: end;" (click)="submitNext()">Next</button>
+</div>
 </section>
 
 

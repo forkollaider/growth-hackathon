@@ -8,8 +8,8 @@ export enum STEPS {
 
 export enum TITLE {
   UPLOAD="Import Data",
-  STRUCTURE="STRUCTURE",
-  PREVIEW="PREVIEW",
+  STRUCTURE="Map Data Structure",
+  PREVIEW="Preview Data",
 }
 
 export const NEXT_STEP: Record<STEPS,STEPS | null> = {

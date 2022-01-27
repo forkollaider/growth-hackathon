@@ -1,4 +1,4 @@
-<section [formGroup]="form">
+<section [formGroup]="form" style="display:flex; flex-direction: column; justify-content: space-between; height:100%; padding-bottom: 20px;" >
   <mat-radio-group aria-label="Select an option" (change)="handleModeChange($event)">
     <div class="radio-cards-wrapper">
       <mat-card>
@@ -32,6 +32,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <div style="margin-top:20px; text-align: end;">
+
   <button mat-raised-button (click)="handleBack()">Back</button>
   <button mat-raised-button color="primary" (click)="submitStructure()">Next</button>
+  </div>
 </section>

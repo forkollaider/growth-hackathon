@@ -13,7 +13,9 @@ type AOA = any[][];
 export class UploadStepComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   public readonly expectedSchema = EXPECTED_SCHEMA;
-  
+
+  public fileName: string;
+
   constructor(private documentContentService: DocumentContentService) { }
 
   data: AOA[][] = [[]];
@@ -23,6 +25,7 @@ export class UploadStepComponent implements OnInit {
 
 	onFileChange(evt: any) {
 		this.documentContentService.setData(evt)
+    this.fileName = evt.target.files[0].name;
 	}
 
 	submitNext() {

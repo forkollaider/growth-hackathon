@@ -19,8 +19,8 @@ tr.mat-footer-row {
 }
 
 .dialog-container .mat-dialog-container {
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 8px !important;
+  padding: 0px;
   overflow: visible;
   display: flex;
   flex-direction: column;
