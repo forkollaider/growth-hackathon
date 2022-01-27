@@ -36,7 +36,6 @@ export class StructureStepComponent implements OnInit {
 
   ngOnInit(): void {
     this.documentContent = this.documentContentService.getData();
-    console.log(this.documentContent);
     this.selectOptions = this.documentContent[0];
   }
 
@@ -85,7 +84,7 @@ export class StructureStepComponent implements OnInit {
       }
     );
 
-    console.log(output);
+    this.documentContentService.setFormattedData(output);
 
     this.next.emit();
   }
