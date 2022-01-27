@@ -17,13 +17,20 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DialogOverviewExample, DialogOverviewExampleDialog } from './containers/dialog/dialog-component';
+import {MatDialog} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadStepComponent,
     StructureStepComponent,
-    PreviewStepComponent
+    PreviewStepComponent,
+    DialogOverviewExample,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -38,9 +45,12 @@ import { MatInputModule } from '@angular/material/input';
     ScrollingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    MatDialog,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

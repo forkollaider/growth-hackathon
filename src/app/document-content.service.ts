@@ -33,9 +33,8 @@ export class DocumentContentService {
 			const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
 			/* save data */
-      console.log('set', this.DATA)
 			this.DATA = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
-
+      console.log('set', this.DATA)
       return this.DATA
 		};
 		reader.readAsArrayBuffer(target.files[0]);

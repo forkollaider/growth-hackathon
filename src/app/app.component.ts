@@ -8,6 +8,7 @@ import {tap} from "rxjs/operators";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit {
   public readonly STEPS = STEPS;
   private readonly NEXT_STEP = NEXT_STEP;
