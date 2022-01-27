@@ -1,4 +1,5 @@
 <main *ngIf="activeStep$ | async as activeStep">
+  <app-preview-step  (back)="handleBackStep()"></app-preview-step>
   <ng-container [ngSwitch]=" activeStep">
     <app-upload-step *ngSwitchCase="STEPS.UPLOAD" (next)="handleNextStep()"></app-upload-step>
     <app-structure-step *ngSwitchCase="STEPS.STRUCTURE" (next)="handleNextStep()" (back)="handleBackStep()"></app-structure-step>
