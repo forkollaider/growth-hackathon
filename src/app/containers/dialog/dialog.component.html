@@ -3,6 +3,6 @@
   <ng-container [ngSwitch]=" activeStep">
     <app-upload-step *ngSwitchCase="STEPS.UPLOAD" (next)="handleNextStep()"></app-upload-step>
     <app-structure-step *ngSwitchCase="STEPS.STRUCTURE" (next)="handleNextStep()" (back)="handleBackStep()"></app-structure-step>
-    <app-preview-step *ngSwitchCase="STEPS.PREVIEW"  (back)="handleBackStep()"></app-preview-step>
+    <app-preview-step *ngSwitchCase="STEPS.PREVIEW"  (back)="handleBackStep()" (next)="handleFinish()"></app-preview-step>
   </ng-container>
   </div>
