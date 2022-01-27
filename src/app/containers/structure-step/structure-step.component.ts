@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {EXPECTED_SCHEMA} from "../../constants/common.constants";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {DocumentContentService} from "../../document-content.service";
 
 enum Mode {
   ROW,
@@ -26,7 +27,7 @@ export class StructureStepComponent implements OnInit {
   public readonly MODES = Mode;
   public form: FormGroup;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, private documentContentService: DocumentContentService) {
     this.form = this.formBuilder.group(this.expectedSchema.reduce((acc: any, fieldConfig) => {
       acc[fieldConfig.field] = new FormControl('');
       return acc;
@@ -34,6 +35,8 @@ export class StructureStepComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.documentContent = this.documentContentService.getData();
+    console.log(this.documentContent);
     this.selectOptions = this.documentContent[0];
   }
 

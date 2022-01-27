@@ -1,7 +1,7 @@
 <input
-    type="file" 
-    (change)="onFileChange($event)" 
-    multiple="false" 
+    type="file"
+    (change)="onFileChange($event)"
+    multiple="false"
 />
 <table class="sjs-table">
     <tr *ngFor="let row of data">
@@ -10,3 +10,4 @@
         </td>
     </tr>
 </table>
+<button mat-raised-button color="primary" (click)="submitNext()">Next</button>

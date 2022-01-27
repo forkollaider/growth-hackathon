@@ -35,6 +35,7 @@ export class DocumentContentService {
 			/* save data */
       console.log('set', this.DATA)
 			this.DATA = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
+      this.DATA = this.DATA.filter((row: any[]) => row.length > 0);
 
       return this.DATA
 		};
