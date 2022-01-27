@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EXPECTED_SCHEMA} from "../../constants/common.constants";
+import {FormBuilder} from "@angular/forms";
 
 enum Mode {
   ROW,
@@ -22,11 +23,16 @@ export class StructureStepComponent implements OnInit {
   ];
   public mode: Mode = Mode.ROW;
   public readonly MODES = Mode;
+  // public form: FormGroup;
 
-  constructor() { }
+  constructor(formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.selectOptions = this.documentContent[0];
+
+    // this.form = this.formBuilder.group({
+    //
+    // })
   }
 
   handleModeChange({value}: {value: Mode}): void {
@@ -52,6 +58,8 @@ export class StructureStepComponent implements OnInit {
     return matrix[longestSide].map((row, rowIndex) => matrix.map(row => row[rowIndex]));
   }
 
-  submitStructure() {}
+  submitStructure() {
+
+  }
 
 }
