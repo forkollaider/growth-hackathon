@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {EXPECTED_SCHEMA} from "../../constants/common.constants";
 
 @Component({
   selector: 'app-structure-step',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./structure-step.component.scss']
 })
 export class StructureStepComponent implements OnInit {
+  public readonly expectedSchema = EXPECTED_SCHEMA;
 
   constructor() { }
 

@@ -17,3 +17,24 @@ export const PREVIOUS_STEP: Record<STEPS,STEPS | null> = {
   [STEPS.STRUCTURE]: STEPS.UPLOAD,
   [STEPS.PREVIEW]: STEPS.STRUCTURE,
 }
+
+export const EXPECTED_SCHEMA = [
+  {
+    name: 'Name'
+  },
+  {
+    name: 'Surname'
+  },
+  {
+    name: 'Email'
+  },
+  {
+    name: 'Password'
+  },
+  {
+    name: 'Gender'
+  },
+  {
+    name: 'Age'
+  },
+];
