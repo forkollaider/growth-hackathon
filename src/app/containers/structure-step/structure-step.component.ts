@@ -27,6 +27,7 @@ export class StructureStepComponent implements OnInit {
   public mode: Mode = Mode.ROW;
   public readonly MODES = Mode;
   public form: FormGroup;
+  public displayedColumns = ['name', 'mapping']
 
   constructor(public formBuilder: FormBuilder, private documentContentService: DocumentContentService) {
     this.form = this.formBuilder.group(this.expectedSchema.reduce((acc: any, fieldConfig) => {
