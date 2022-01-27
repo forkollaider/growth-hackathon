@@ -43,6 +43,10 @@ export class DialogComponent {
     }, take(1))).subscribe();
   }
 
+  handleFinish(): void {
+    this.dialogRef.close();
+  }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
