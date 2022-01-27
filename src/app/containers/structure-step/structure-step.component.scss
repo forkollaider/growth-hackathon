@@ -7,3 +7,19 @@ button {
   margin-right: 8px;
 }
 
+.radio-cards-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+section {
+  height: 100%;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
