@@ -1,3 +1,18 @@
+<<<<<<< HEAD
 .dialog, .mat-dialog-container {
     padding: 0 !important;
 }
+=======
+.home-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  button {
+    height: 128px;
+    width: 256px;
+  }
+}
+>>>>>>> 6ef6feda69247bde32fc755d8622955fad693c3b

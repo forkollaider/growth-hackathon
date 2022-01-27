@@ -1,3 +1,17 @@
+<<<<<<< HEAD
 <button mat-raised-button (click)="openDialog()">
   Import .xlsx file
 </button>
+=======
+<!-- <main *ngIf="activeStep$ | async as activeStep">
+  <ng-container [ngSwitch]=" activeStep">
+    <app-upload-step *ngSwitchCase="STEPS.UPLOAD" (next)="handleNextStep()"></app-upload-step>
+    <app-structure-step *ngSwitchCase="STEPS.STRUCTURE" (next)="handleNextStep()" (back)="handleBackStep()"></app-structure-step>
+    <app-preview-step *ngSwitchCase="STEPS.PREVIEW"  (back)="handleBackStep()"></app-preview-step>
+  </ng-container>
+</main> -->
+<section class="home-container">
+  <img style='height:80%' src="assets/4y85rv.jpeg"/>
+  <button mat-raised-button (click)="openDialog()">Import</button>
+</section>
+>>>>>>> 6ef6feda69247bde32fc755d8622955fad693c3b
