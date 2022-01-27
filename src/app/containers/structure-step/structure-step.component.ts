@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {EXPECTED_SCHEMA} from "../../constants/common.constants";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
@@ -13,6 +13,7 @@ enum Mode {
   styleUrls: ['./structure-step.component.scss']
 })
 export class StructureStepComponent implements OnInit {
+  @Output() next = new EventEmitter<void>();
   public readonly expectedSchema = EXPECTED_SCHEMA;
   public selectOptions: (string | number)[] = [];
   public documentContent: any[][] = [
@@ -82,6 +83,8 @@ export class StructureStepComponent implements OnInit {
     );
 
     console.log(output);
+
+    this.next.emit();
   }
 
 }
