@@ -1,32 +1,24 @@
 import {Component, OnInit} from '@angular/core';
-import {NEXT_STEP, PREVIOUS_STEP, STEPS} from "./constants/common.constants";
-import {Observable, of} from "rxjs";
-import {take, tap} from "rxjs/operators";
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from './containers/dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  public readonly STEPS = STEPS;
-  private readonly NEXT_STEP = NEXT_STEP;
-  private readonly PREVIOUS_STEP = PREVIOUS_STEP;
-  public activeStep$: Observable<STEPS> = of(this.STEPS.UPLOAD);
 
+export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleNextStep(): void {
-    this.activeStep$.pipe(tap((activeStep: STEPS) => {
-      this.activeStep$ = of(this.NEXT_STEP[activeStep] as STEPS);
-      console.log('here');
-    }, take(1))).subscribe();
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '80%',
+      height: '80%'
+    });
   }
 
-  handleBackStep(): void {
-    this.activeStep$.pipe(tap((activeStep: STEPS) => {
-      this.activeStep$ = of(this.PREVIOUS_STEP[activeStep] as STEPS);
-    }, take(1))).subscribe();
-  }
 }

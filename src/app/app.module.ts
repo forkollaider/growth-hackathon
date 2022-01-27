@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { UploadStepComponent } from './containers/upload-step/upload-step.component';
 import { StructureStepComponent } from './containers/structure-step/structure-step.component';
 import { PreviewStepComponent } from './containers/preview-step/preview-step.component';
+import { DialogComponent } from './containers/dialog/dialog.component';
 import { AppRoutingModule } from './app-routing.module';
 import {MatSelectModule} from "@angular/material/select";
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -20,6 +21,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatDialog} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { MatInputModule } from '@angular/material/input';
     UploadStepComponent,
     StructureStepComponent,
     PreviewStepComponent,
-    TableGeneratedColumnsComponent
+    TableGeneratedColumnsComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,9 +49,14 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
+    MatDialogModule,
     MatRadioModule,
+    MatTableModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [
+    MatDialog,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

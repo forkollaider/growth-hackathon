@@ -35,7 +35,6 @@ export class DocumentContentService {
 			const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
 			/* save data */
-      console.log('set', this.DATA)
 			this.DATA = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
       this.DATA = this.DATA.filter((row: any[]) => row.length > 0);
 
