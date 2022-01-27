@@ -11,6 +11,8 @@ import {MatSelectModule} from "@angular/material/select";
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { TableGeneratedColumnsComponent } from './containers/table-generated-columns/table-generated-columns.component';
+import { MatTableModule } from '@angular/material/table';
 import {MatRadioModule} from "@angular/material/radio";
 
 import { MatButtonModule } from '@angular/material/button';
@@ -23,14 +25,13 @@ import {MatDialog} from '@angular/material/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
 
 
-import {MatTableModule} from "@angular/material/table";
-
 @NgModule({
   declarations: [
     AppComponent,
     UploadStepComponent,
     StructureStepComponent,
     PreviewStepComponent,
+    TableGeneratedColumnsComponent,
     DialogComponent,
   ],
   imports: [
@@ -47,6 +48,7 @@ import {MatTableModule} from "@angular/material/table";
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableModule,
     MatDialogModule,
     MatRadioModule,
     MatTableModule,
