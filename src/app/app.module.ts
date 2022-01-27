@@ -10,13 +10,16 @@ import {MatSelectModule} from "@angular/material/select";
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { TableGeneratedColumnsComponent } from './containers/table-generated-columns/table-generated-columns.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadStepComponent,
     StructureStepComponent,
-    PreviewStepComponent
+    PreviewStepComponent,
+    TableGeneratedColumnsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ScrollingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
