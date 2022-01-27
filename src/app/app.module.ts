@@ -10,6 +10,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatRadioModule} from "@angular/material/radio";
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,7 +39,8 @@ import { MatInputModule } from '@angular/material/input';
     ScrollingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

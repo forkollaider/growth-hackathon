@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { DocumentContentService } from 'src/app/document-content.service';
 
 type AOA = any[][];
@@ -10,6 +10,7 @@ type AOA = any[][];
 })
 
 export class UploadStepComponent implements OnInit {
+  @Output() next = new EventEmitter<void>();
 
   constructor(private documentContentService: DocumentContentService) { }
 
@@ -21,4 +22,8 @@ export class UploadStepComponent implements OnInit {
 	onFileChange(evt: any) {
 		this.documentContentService.setData(evt)
 	}
+
+	submitNext() {
+    this.next.emit();
+  }
 }

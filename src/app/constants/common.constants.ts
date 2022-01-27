@@ -20,21 +20,27 @@ export const PREVIOUS_STEP: Record<STEPS,STEPS | null> = {
 
 export const EXPECTED_SCHEMA = [
   {
-    name: 'Name'
+    name: 'Name',
+    field: 'name',
   },
   {
-    name: 'Surname'
+    name: 'Surname',
+    field: 'surname'
   },
   {
-    name: 'Email'
+    name: 'Email',
+    field: 'email',
   },
   {
-    name: 'Password'
+    name: 'Password',
+    field: 'password'
   },
   {
-    name: 'Gender'
+    name: 'Gender',
+    field: 'gender',
   },
   {
-    name: 'Age'
+    name: 'Age',
+    field: 'age',
   },
 ];
