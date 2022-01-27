@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { DocumentContentService } from 'src/app/document-content.service';
+import {EXPECTED_SCHEMA} from "../../constants/common.constants";
 
 type AOA = any[][];
 
@@ -11,7 +12,8 @@ type AOA = any[][];
 
 export class UploadStepComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
-
+  public readonly expectedSchema = EXPECTED_SCHEMA;
+  
   constructor(private documentContentService: DocumentContentService) { }
 
   data: AOA[][] = [[]];

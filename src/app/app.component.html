@@ -1,8 +1,3 @@
-<!-- <main *ngIf="activeStep$ | async as activeStep">
-  <ng-container [ngSwitch]=" activeStep">
-    <app-upload-step *ngSwitchCase="STEPS.UPLOAD" (next)="handleNextStep()"></app-upload-step>
-    <app-structure-step *ngSwitchCase="STEPS.STRUCTURE" (next)="handleNextStep()" (back)="handleBackStep()"></app-structure-step>
-    <app-preview-step *ngSwitchCase="STEPS.PREVIEW"  (back)="handleBackStep()"></app-preview-step>
-  </ng-container>
-</main> -->
-<button mat-raised-button (click)="openDialog()">Pick one</button>
+<button mat-raised-button (click)="openDialog()">
+  Import .xlsx file
+</button>

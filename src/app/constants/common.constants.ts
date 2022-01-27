@@ -1,9 +1,15 @@
 
 
 export enum STEPS {
-  UPLOAD= "UPLOAD",
-  STRUCTURE= "STRUCTURE",
-  PREVIEW= "PREVIEW",
+  UPLOAD="UPLOAD",
+  STRUCTURE="STRUCTURE",
+  PREVIEW="PREVIEW",
+}
+
+export enum TITLE {
+  UPLOAD="Import Data",
+  STRUCTURE="STRUCTURE",
+  PREVIEW="PREVIEW",
 }
 
 export const NEXT_STEP: Record<STEPS,STEPS | null> = {

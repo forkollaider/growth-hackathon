@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDialog} from '@angular/material/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 import {MatTableModule} from "@angular/material/table";
@@ -50,7 +51,8 @@ import {MatTableModule} from "@angular/material/table";
     MatDialogModule,
     MatRadioModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [
     MatDialog,

@@ -1,13 +1,30 @@
-<input
-    type="file"
-    (change)="onFileChange($event)"
-    multiple="false"
-/>
-<table class="sjs-table">
-    <tr *ngFor="let row of data">
-        <td *ngFor="let val of row">
-            {{val}}
-        </td>
-    </tr>
-</table>
-<button mat-raised-button color="primary" (click)="submitNext()">Next</button>
+<section >
+    <div stle="margin-top: 20px; margin-bottom: 20px;">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
+        </p>
+    <div style="border: 2px dotted #5f8ff8; border-radius: 20px; background-color: #f7f9ff;">
+        <div style="display: flex; flex-direction: column; padding: 20px; padding-top: 40px; padding-bottom: 30px;"> 
+        <p style="color:#5f8ff8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
+        </p>
+        <input class="ng-hide" id="input-file-id" (change)="onFileChange($event)" multiple type="file" />
+    
+        <label for="input-file-id" class="mat-button mat-raised mat-primary" style="color:#5f8ff8">
+            Choose Files
+        </label>
+        </div>
+    </div>
+    <div style="margin-top: 20px; border-radius: 20px; background-color: #f5f6f7; padding: 20px;">
+        <h3>Required data</h3>
+        <ul *ngFor="let value of expectedSchema">
+            <li>
+                {{value.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+    <button mat-raised-button color="primary" style="margin-top:20px;" (click)="submitNext()">Next</button>
+</section>
+
+
