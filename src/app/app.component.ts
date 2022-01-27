@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   public readonly STEPS = STEPS;
   private readonly NEXT_STEP = NEXT_STEP;
   private readonly PREVIOUS_STEP = PREVIOUS_STEP;
-  public activeStep$: Observable<STEPS> = of(this.STEPS.UPLOAD);
+  public activeStep$: Observable<STEPS> = of(this.STEPS.STRUCTURE);
 
   ngOnInit(): void {
   }
