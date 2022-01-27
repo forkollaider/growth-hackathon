@@ -19,14 +19,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-<<<<<<< HEAD
 import {MatDialog} from '@angular/material/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
 
 
-=======
 import {MatTableModule} from "@angular/material/table";
->>>>>>> 0c77f48595c8f559624a2838d0557fef9adeee15
 
 @NgModule({
   declarations: [
