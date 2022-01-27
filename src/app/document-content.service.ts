@@ -10,6 +10,8 @@ export class DocumentContentService {
 
   constructor() { }
 
+  formattedData: any[] = [];
+
   DATA: AOA = [[],[]];
 	wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
 	fileName: string = 'dummy.xlsx';
@@ -34,9 +36,19 @@ export class DocumentContentService {
 
 			/* save data */
 			this.DATA = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
-      console.log('set', this.DATA)
+      this.DATA = this.DATA.filter((row: any[]) => row.length > 0);
+
       return this.DATA
 		};
 		reader.readAsArrayBuffer(target.files[0]);
 	}
+
+	setFormattedData(formattedData: any[]) {
+    this.formattedData = formattedData;
+    console.log(this.formattedData);
+  }
+
+  getFormatData() {
+    return this.formattedData;
+  }
 }
