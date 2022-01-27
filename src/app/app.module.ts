@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { UploadStepComponent } from './containers/upload-step/upload-step.component';
 import { StructureStepComponent } from './containers/structure-step/structure-step.component';
 import { PreviewStepComponent } from './containers/preview-step/preview-step.component';
+import { DialogComponent } from './containers/dialog/dialog.component';
 import { AppRoutingModule } from './app-routing.module';
 import {MatSelectModule} from "@angular/material/select";
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -18,7 +19,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { DialogOverviewExample, DialogOverviewExampleDialog } from './containers/dialog/dialog-component';
 import {MatDialog} from '@angular/material/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
 
@@ -30,8 +30,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     UploadStepComponent,
     StructureStepComponent,
     PreviewStepComponent,
-    DialogOverviewExample,
-    DialogOverviewExampleDialog
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,14 +46,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule,
   ],
   providers: [
     MatDialog,
-=======
-    MatRadioModule,
->>>>>>> 7ee893ee2b4c9d528c0faa557ab079442c8d8a3a
   ],
   bootstrap: [AppComponent]
 })
