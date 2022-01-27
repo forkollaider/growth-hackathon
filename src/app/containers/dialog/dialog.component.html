@@ -5,7 +5,4 @@
     <app-structure-step *ngSwitchCase="STEPS.STRUCTURE" (next)="handleNextStep()" (back)="handleBackStep()"></app-structure-step>
     <app-preview-step *ngSwitchCase="STEPS.PREVIEW"  (back)="handleBackStep()"></app-preview-step>
   </ng-container>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button cdkFocusInitial>Ok</button>
-</div>
+  </div>

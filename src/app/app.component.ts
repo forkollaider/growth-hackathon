@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '600px',
-      height: '600px'
+      width: '80%',
+      height: '80%'
     });
   }
 
