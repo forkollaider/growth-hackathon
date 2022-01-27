@@ -15,6 +15,7 @@ enum Mode {
 })
 export class StructureStepComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
+  @Output() back = new EventEmitter<void>();
   public readonly expectedSchema = EXPECTED_SCHEMA;
   public selectOptions: (string | number)[] = [];
   public documentContent: any[][] = [
@@ -87,6 +88,10 @@ export class StructureStepComponent implements OnInit {
     this.documentContentService.setFormattedData(output);
 
     this.next.emit();
+  }
+
+  handleBack() {
+    this.back.emit();
   }
 
 }

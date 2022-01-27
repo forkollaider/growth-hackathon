@@ -27,6 +27,6 @@ export class AppComponent implements OnInit {
   handleBackStep(): void {
     this.activeStep$.pipe(tap((activeStep: STEPS) => {
       this.activeStep$ = of(this.PREVIOUS_STEP[activeStep] as STEPS);
-    }))
+    }, take(1))).subscribe();
   }
 }
