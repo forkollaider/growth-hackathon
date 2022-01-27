@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {NEXT_STEP, PREVIOUS_STEP, STEPS} from "../../constants/common.constants";
+import {NEXT_STEP, PREVIOUS_STEP, STEPS, TITLE} from "../../constants/common.constants";
 import {Observable, of} from "rxjs";
 import {take, tap} from "rxjs/operators";
 
@@ -12,6 +12,8 @@ export interface DialogData {
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.scss']
+
 })
 
 export class DialogComponent {
@@ -20,8 +22,8 @@ export class DialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {}
 
-
   public readonly STEPS = STEPS;
+  public readonly TITLE = TITLE;
   private readonly NEXT_STEP = NEXT_STEP;
   private readonly PREVIOUS_STEP = PREVIOUS_STEP;
   public activeStep$: Observable<STEPS> = of(this.STEPS.UPLOAD);

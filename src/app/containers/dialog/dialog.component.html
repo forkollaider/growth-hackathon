@@ -1,8 +1,12 @@
-<h1 mat-dialog-title>Hello</h1>
-<div mat-dialog-content *ngIf="activeStep$ | async as activeStep">
-  <ng-container [ngSwitch]=" activeStep">
+<div *ngIf="activeStep$ | async as activeStep" style="padding: 0">
+<h1 mat-dialog-title>
+  {{TITLE[activeStep]}}
+</h1>
+<div mat-dialog-content>
+  <ng-container [ngSwitch]="activeStep" class="custom-dialog">
     <app-upload-step *ngSwitchCase="STEPS.UPLOAD" (next)="handleNextStep()"></app-upload-step>
     <app-structure-step *ngSwitchCase="STEPS.STRUCTURE" (next)="handleNextStep()" (back)="handleBackStep()"></app-structure-step>
     <app-preview-step *ngSwitchCase="STEPS.PREVIEW"  (back)="handleBackStep()"></app-preview-step>
   </ng-container>
+</div>
 </div>
