@@ -2,22 +2,25 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export interface PeriodicElement {
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  id: number;
+  age: number;
+  surname?: string;
+  gender?: string;
+  email?: string;
+  password?: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+  { id: 1, name: 'Hydrogen', age: 1.0079, surname: 'H',  },
+  { id: 2, name: 'Helium', age: 4.0026, surname: 'He' },
+  { id: 3, name: 'Lithium', age: 6.941, surname: 'Li' },
+  { id: 4, name: 'Beryllium', age: 9.0122, surname: 'Be' },
+  { id: 5, name: 'Boron', age: 10.811, surname: 'B' },
+  { id: 6, name: 'Carbon', age: 12.0107, surname: 'C' },
+  { id: 7, name: 'Nitrogen', age: 14.0067, surname: 'N' },
+  { id: 8, name: 'Oxygen', age: 15.9994, surname: 'O' },
+  { id: 9, name: 'Fluorine', age: 18.9984, surname: 'F' },
+  { id: 10, name: 'Neon', age: 20.1797, surname: 'Ne' },
 ];
 
 @Component({
@@ -28,32 +31,49 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class TableGeneratedColumnsComponent implements OnInit {
   @Input() columns: any[];
   @Input() dataSource: Record<string, any>[];
+  @Input() isHeaderOnTop = true;
 
   public displayedColumns: any[];
+  private readonly noDataSign = '-';
 
   constructor() {}
 
   ngOnInit(): void {
     this.columns = [
-      {
-        columnDef: 'position',
-        header: 'No.',
-        cell: (element: PeriodicElement) => `${element.position}`,
-      },
+      // {
+      //   columnDef: 'id',
+      //   header: 'No.',
+      //   cell: (element: PeriodicElement) => `${element.id}`,
+      // },
       {
         columnDef: 'name',
         header: 'Name',
-        cell: (element: PeriodicElement) => `${element.name}`,
+        cell: (element: PeriodicElement) => `${element.name || this.noDataSign }`,
       },
       {
-        columnDef: 'weight',
-        header: 'Weight',
-        cell: (element: PeriodicElement) => `${element.weight}`,
+        columnDef: 'age',
+        header: 'age',
+        cell: (element: PeriodicElement) => `${element.age || this.noDataSign }`,
       },
       {
-        columnDef: 'symbol',
-        header: 'Symbol',
-        cell: (element: PeriodicElement) => `${element.symbol}`,
+        columnDef: 'surname',
+        header: 'surname',
+        cell: (element: PeriodicElement) => `${element.surname || this.noDataSign }`,
+      },
+      {
+        columnDef: 'gender',
+        header: 'gender',
+        cell: (element: PeriodicElement) => `${element.gender || this.noDataSign }`,
+      },
+      {
+        columnDef: 'password',
+        header: 'password',
+        cell: (element: PeriodicElement) => `${element.password || this.noDataSign }`,
+      },
+      {
+        columnDef: 'email',
+        header: 'email',
+        cell: (element: PeriodicElement) => `${element.email || this.noDataSign }`,
       },
     ];
     this.dataSource = ELEMENT_DATA;
