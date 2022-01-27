@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { UploadStepComponent } from './containers/upload-step/upload-step.component';
 import { StructureStepComponent } from './containers/structure-step/structure-step.component';
 import { PreviewStepComponent } from './containers/preview-step/preview-step.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PreviewStepComponent } from './containers/preview-step/preview-step.com
     PreviewStepComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
