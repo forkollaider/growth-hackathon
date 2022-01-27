@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EXPECTED_SCHEMA} from "../../constants/common.constants";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 enum Mode {
   ROW,
@@ -23,16 +23,17 @@ export class StructureStepComponent implements OnInit {
   ];
   public mode: Mode = Mode.ROW;
   public readonly MODES = Mode;
-  // public form: FormGroup;
+  public form: FormGroup;
 
-  constructor(formBuilder: FormBuilder) { }
+  constructor(public formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group(this.expectedSchema.reduce((acc: any, fieldConfig) => {
+      acc[fieldConfig.field] = new FormControl('');
+      return acc;
+    }, {}))
+  }
 
   ngOnInit(): void {
     this.selectOptions = this.documentContent[0];
-
-    // this.form = this.formBuilder.group({
-    //
-    // })
   }
 
   handleModeChange({value}: {value: Mode}): void {
@@ -59,7 +60,28 @@ export class StructureStepComponent implements OnInit {
   }
 
   submitStructure() {
+    const header = this.selectOptions,
+     documentContent = this.mode === this.MODES.ROW ? this.documentContent : this.transpose(this.documentContent),
+    mapping = Object.entries(this.form.getRawValue()).map(([name, mapped]: any) => ({field: name, index: header.findIndex(e => e === mapped)}));
 
+    documentContent.shift();
+
+    console.log(mapping);
+
+    if(!documentContent) return;
+
+    console.log(documentContent);
+
+    const output = documentContent.map(row => {
+      return mapping.reduce((formatted:any, field) => {
+        formatted[field.field] = row[field.index];
+        return formatted
+      }, {})
+
+      }
+    );
+
+    console.log(output);
   }
 
 }
