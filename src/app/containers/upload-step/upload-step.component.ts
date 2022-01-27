@@ -8,6 +8,7 @@ type AOA = any[][];
   templateUrl: './upload-step.component.html',
   styleUrls: ['./upload-step.component.scss']
 })
+
 export class UploadStepComponent implements OnInit {
 
   constructor() { }
@@ -15,7 +16,7 @@ export class UploadStepComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  data: AOA = [ [1, 2], [3, 4] ];
+  data: AOA = [[],[]];
 	wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
 	fileName: string = 'SheetJS.xlsx';
 	ver: string = XLSX.version;
